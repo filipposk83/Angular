@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS</title>
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+</head>
+<body ng-app="App" ng-controller="MainCtrl" ng-cloak>
+
+    <h1>AngularJS - $http - Fetching HTTP URLs</h1>
+
+    <label for="selector"> Search by name:</label>
+    <input type="text" id="selector" ng-model="selected">
+
+    <ul>
+        <li ng-repeat="country in countries | filter:selected">
+            <h2>{{country.name}}</h2>
+            <h3>Capital: {{country.capital}}</h3>
+            <h4>Population: {{country.population}}</h4>
+        </li>
+    </ul>
+
+    <script>
+        // https://api.myjson.com/bins/r1mlg
+        const CountryApp = angular.module("App", []);
+
+        // Add $http service component into our MainCtrl controller
+        // CountryApp.controller("MainCtrl", MainCtrl);
+        CountryApp.controller("MainCtrl", ['$scope', '$http', MainCtrl]);
+
+        function MainCtrl($scope, $http){
+            const URL = "https://api.myjson.com/bins/r1mlg";
+            $scope.countries = [1, 2, 3];
+            $http.get(URL).then(handleJson);
+
+            function handleJson(response){
+                console.log(response.data);
+                $scope.countries = response.data;
+                
+            }
+        }
+    </script>
+    
+</body>
+</html>

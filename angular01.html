@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS</title>
+    <style>
+        #output {
+            border: 1px solid gray;
+            height: 20px;
+        }
+        #box {
+            width: 30px;
+            height: 30px;
+            background: gray;
+            border: 1px solid gray;
+        }
+        body, #box {
+            transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vanilla JS</h1>
+    <input type="text" id="color">
+    <div id="output"></div>
+    <div id="box"></div>
+
+    <script>
+
+        const input = document.querySelector("#color");
+        const output = document.querySelector("#output");
+        const box = document.querySelector("#box");
+        // input.remove(); --> HTMLElement
+
+        input.addEventListener("keyup", handleKeyUp);
+
+        function handleKeyUp(){
+            output.innerText = input.value;
+            document.body.style.background = input.value;
+            box.style.background = input.value;
+        }
+    </script>
+</body>
+</html>

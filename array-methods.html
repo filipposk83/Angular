@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array: indexof(), splice()</title>
+</head>
+
+<body>
+    <h1>Array: indexof(), splice()</h1>
+
+    <script>
+        //                   0          1         2
+        let countries = ["Greece", "Romania", "Spain"];
+        let products = [{ name: "iPhone" }, { name: "Samsung" }];
+
+        // Array.prototype.indexOF:
+        let idx = countries.indexOf("Romania");
+        console.log(idx); // 1
+
+        let not = countries.indexOf("spain");
+        console.log(not); // -1
+
+        // Array.prototype.splice:
+        countries.splice(1, 1);
+        console.log(countries);
+
+        // Remove specific Array value:
+        let indexOfSpain = countries.indexOf("Spain");
+        if (indexOfSpain > -1) {
+            countries.splice(indexOfSpain, 1);
+        }
+        console.log(countries);
+        
+    </script>
+</body>
+
+</html>

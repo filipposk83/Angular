@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS</title>
+    <style>
+        #output {
+            border: 1px solid gray;
+            height: 20px;
+        }
+        #box {
+            width: 30px;
+            height: 30px;
+            background: gray;
+            border: 1px solid gray;
+        }
+        body, #box {
+            transition: all 1s ease;
+        }
+    </style>
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+</head>
+<!-- AngularJS Directive: ng-app -->
+<body ng-app>
+
+    <h1>AngularJS</h1>
+    <input type="text" id="color" ng-model="color">
+
+    <p>Math: {{ 3*4 }}</p>
+    <p>{{ "hello".toUpperCase() }}</p>
+
+    <div id="output">Color: {{ color.toUpperCase() }}</div>
+    <div id="box" style="background: {{ color }}"></div>
+
+    <!-- don't need <script> tags -->
+    <!-- <script>
+    </script> -->
+</body>
+</html>

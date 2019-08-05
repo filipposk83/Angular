@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS-event</title>
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-cloak>
+
+    <h1>AngularJS : Events</h1>
+
+    <div ng-controller="MainCtrl">
+        <ul>
+            <!-- track by $index ---- an thelo na vazo duplicate times -->
+            <li ng-repeat="course in courses track by $index">
+                <p>{{course | uppercase}}</p>
+            </li>
+
+        </ul>
+        <form ng-submit="addNewCourse()">
+            <label for="newcourse">Add new Course: </label>
+            <input type="text" id="newcourse" ng-model="newcourse">
+            <button>Add</button>
+        </form>
+
+        <br>
+        <button ng-click="handleClick()">Clear list</button>
+
+    </div>
+
+    <script>
+        // 1) newModule
+        const myApp = angular.module("myApp", []);
+
+        // 2) Module Controller
+        myApp.controller("MainCtrl", MainCtrl);
+
+        function MainCtrl($scope) {
+            $scope.courses = ["Python", "Java", "Javascript"];
+            $scope.addNewCourse = function () {
+                // duplicate case sensitive entries --- check
+                if ($scope.courses.indexOf($scope.newcourse) < 0) {
+                    // console.log($scope);
+                    $scope.courses.push($scope.newcourse);
+                    $scope.newcourse = "";
+                }
+
+            }
+            $scope.handleClick = function(){
+                $scope.courses = [];
+            }
+        }
+    </script>
+
+</body>
+
+</html>

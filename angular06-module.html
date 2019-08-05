@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Modules</title>
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-cloak>
+
+    <div ng-controller="MainCtrl">
+        <h3>{{ title }}</h3>
+        <ul>
+            <li ng-repeat="product in products">
+                <p>{{ product.name | uppercase }}</p>
+                <p>{{ product.price | currency:'&euro; ' }}</p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+
+        const myApp = angular.module("myApp", []);
+
+        myApp.controller("MainCtrl", mainCtrl);
+
+        function mainCtrl($scope) {
+            $scope.title = "My cool App!";
+            $scope.products = [{ name: 'iPhone', price: 500 }, { name: 'Samsung', price: 400 }, { name: 'Xiaomi', price: 300 }];
+        }
+
+    </script>
+
+</body>
+
+</html>

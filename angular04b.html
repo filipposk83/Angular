@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS - ng-repeat</title>
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+</head>
+
+<body ng-app ng-cloak
+    ng-init="products=[{ name: 'iPhone', price: 500},{ name: 'Samsung', price: 400},{ name: 'Xiaomi', price: 300}]">
+
+    <h1>The ng-repeat Directive</h1>
+
+    <p>{{ "lowercase" | uppercase }}</p>
+
+    <label for="selector"> Search by name:</label>
+    <input type="text" id="selector" ng-model="selected">
+    <ul>
+        <li ng-repeat="product in products | filter:selected">
+            <p>{{ product.name | uppercase }}</p>
+            <p>{{ product.price | currency:'&euro; ' }}</p>
+        </li>
+    </ul>
+
+    <hr>
+
+    <label for="priceSelector"> Search by price:</label>
+    <input type="text" id="priceSelector" ng-model="selectedprice">
+    <ul>
+        <li ng-repeat="product in products | filter:{ price: selectedprice }">
+            <p>{{ product.name | uppercase }}</p>
+            <p>{{ product.price | currency:'&euro; ' }}</p>
+        </li>
+    </ul>
+
+</body>
+
+</html>

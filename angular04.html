@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS - ng-repeat</title>
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+</head>
+<body ng-app ng-cloak ng-init="numbers=[1,2,3,4,5]">
+
+    <h1>The ng-repeat Directive</h1>
+
+    <p>{{ numbers }}</p>
+
+    <ul>
+        <li ng-repeat="number in numbers">
+            List item #{{ number * 100 }}
+        </li>
+    </ul>
+
+
+    
+</body>
+</html>

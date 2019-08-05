@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS</title>
+    <style>
+        #box {
+            width: 30px;
+            height: 30px;
+            background: gray;
+            border: 1px solid gray;
+        }
+        body,
+        #box {
+            transition: all 1s ease;
+        }
+    </style>
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+</head>
+<!-- AngularJS Directive: ng-app -->
+
+<body ng-app ng-cloak>
+
+    <h1>AngularJS</h1>
+    <select ng-model="style" ng-init="style='solid'">
+        <option value="solid">Solid</option>
+        <option value="dotted">Dotted</option>
+        <option value="dashed">Dashed</option>
+    </select>
+
+    <select ng-model="width" ng-init="width='1px'">
+        <option value="1px">1px</option>
+        <option value="5px">5px</option>
+        <option value="10px">10px</option>
+    </select>
+    
+    <br>
+    <p>You selected: <code>border: {{ width }} {{ style }}</code></p>
+    <div id="box" style="border: {{ width }} {{ style }} yellowgreen"></div>
+
+</body>
+
+</html>

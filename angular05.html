@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS ng-show</title>
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+</head>
+<body ng-app ng-cloak>
+
+    <label for="password">Enter password: </label>
+    <input id="password" type="password" ng-model="password">
+
+    <p ng-show="password==='secret'">Logged in!</p>
+
+    <!-- CheckBox -->
+    <hr>
+    
+    <h3>ng-show with boolean checkbox:</h3>
+
+    <label for="show">Show Orange:</label>
+    <input type="checkbox" id="show" ng-model="show">
+    <label for="green">Show Green:</label>
+    <input type="checkbox" id="green" ng-model="green">
+    
+    <div ng-show="show" style="background: orange; height: 20px;">Unveiled</div>
+    <div ng-show="green" style="background: green; height: 20px;">Unveiled</div>
+
+</body>
+</html>
